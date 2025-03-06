@@ -79,11 +79,55 @@ High-quality, actionable alerts contain clearly defined components, ensuring tha
    - Machine learning models can analyze historical alert data and suggest improvements to reduce noise while improving coverage.
 
 By following these best practices, organizations can **significantly reduce alert fatigue**, improve **mean-time-to-resolution (MTTR)**, and **enhance overall reliability**.
-## Developing a Scoring Rubric for Human-Based Alerts
-
-A robust **alert scoring rubric** ensures alerts remain **actionable, relevant, and high-quality**. This structured approach provides **consistency** in evaluating alerts, driving **continuous improvement**, and reducing **alert fatigue**.
 
 ## Developing a Scoring Rubric for Human-Based Alerts
 
 A robust **alert scoring rubric** ensures alerts remain **actionable, relevant, and high-quality**. This structured approach provides **consistency** in evaluating alerts, driving **continuous improvement**, and reducing **alert fatigue**.
+
+### **Alert Scoring Rubric**
+
+| Criterion           | Description                                              | Scoring Scale (1–10)                              | Weight  |
+|---------------------|----------------------------------------------------------|-------------------------------------------------|---------|
+| **Actionability**   | Clear, immediate actions available to resolve the issue  | 1 (vague actions) to 10 (clearly actionable steps) | 30%     |
+| **Clarity**         | Alert clearly defines the problem and necessary actions  | 1 (poor clarity) to 10 (high clarity and specificity) | 20%     |
+| **Impact Alignment**| Alert directly correlates to business or user impact    | 1 (minimal correlation) to 10 (direct correlation) | 20%     |
+| **Threshold Accuracy**| Appropriateness and precision of triggering conditions | 1 (frequent false positives) to 10 (rarely false) | 15%     |
+| **Owner Assignment**| Alert ownership is clearly defined                      | 1 (no clear owner) to 10 (clear, accountable owner) | 15%     |
+| **Documentation**   | Availability and quality of remediation documentation   | 1 (poor/no documentation) to 10 (comprehensive and clear) | 10% |
+
+---
+
+### **How to Score Alerts Using an LLM (Private or ChatGPT-Based)**
+
+#### **1. Prepare the Alert Data in a Structured Format**
+```json
+{
+   "alert_name": "High Database Latency",
+   "description": "Database latency exceeds 200ms for 3 minutes",
+   "owner": "Database Engineering Team",
+   "threshold": "Latency >200ms sustained for 3 minutes",
+   "actions": "Investigate logs and performance metrics",
+   "runbook_link": "https://www.example.com/runbooks/high-db-latency"
+}
+```
+#### **2. Feed the Alert and Scoring Rubric to the LLM**
+```
+You are an expert in Site Reliability Engineering. Using the following rubric, evaluate the alert provided:
+{Rubric and Alert Data Here}
+```
+#### **3. Analyze AI-Generated Scores and Recommendations**
+```json
+{
+   "actionability": 9,
+   "clarity": 8,
+   "impact_alignment": 10,
+   "threshold_accuracy": 7,
+   "owner_assignment": 6,
+   "documentation": 5,
+   "recommendations": "Improve documentation by linking to additional troubleshooting steps. Assign a backup owner."
+}
+```
+### **Final Thoughts**
+By implementing a structured rubric and leveraging LLM-driven scoring, organizations can create more actionable alerts, reduce operational noise, and improve incident response effectiveness.
+
 
