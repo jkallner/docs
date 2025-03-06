@@ -140,6 +140,43 @@ You are an expert in Site Reliability Engineering. Using the following rubric, e
 | **Customization**   | Can be fine-tuned to align with organizational needs. |
 | **Continuous Learning** | AI models improve based on historical incident resolution data. |
 
+## Alert Lifecycle: Decision Tree for Refinement or Pruning  
+
+To ensure that alerts remain **actionable** and **valuable**, organizations should implement a structured **Alert Lifecycle Decision Tree** that helps determine whether an alert should be **refined** or **pruned**. This structured decision-making process ensures that teams maintain a **high signal-to-noise ratio** while minimizing operational burden.  
+
+### **Assessing the Alert’s Actionability**  
+
+The first step in determining whether to refine or prune an alert is to evaluate its **actionability**. An actionable alert must lead to a **clear response**. If the alert does not provide meaningful direction or insight, it should be **considered for removal**. If it is actionable but suboptimal, **refinement may be necessary**.  
+
+### **Refinement Consideration**  
+
+If an alert is actionable but lacks effectiveness, it should be **refined**. Common refinement needs include excessive frequency, inaccurate thresholds, vague messaging, unclear ownership, or improper prioritization.  
+
+Refinement efforts may involve **adjusting thresholds**, **consolidating redundant alerts**, **improving clarity**, **assigning clear ownership**, or **linking to detailed runbooks** to guide resolution. If an alert continues to generate excessive noise even after refinement, its necessity should be reassessed.  
+
+### **Pruning Consideration**  
+
+If an alert does not lead to action, is frequently ignored, has excessive false positives, duplicates existing signals, or has become obsolete due to system changes, it should be **removed**.  
+
+Pruning can involve **outright disabling** the alert, **replacing** it with a more relevant signal, **adjusting frequency**, or **shifting the notification to a dashboard** instead of triggering an alert.  
+
+### **Decision Tree Diagram**  
+```less
+             [ Incoming Alert ]
+                    |
+     --------------------------------
+     |                              |
+  [ Actionable? ]             [ Not Actionable ]
+     |                              |
+     |                    →  [ Consider Pruning ]
+     |                              |
+     ↓                              ↓
+ [ Refinement Needed? ]         [ Remove or Adjust ]
+     |
+     ↓
+ [ Adjust Thresholds, Ownership, Documentation, or Merge Alerts ]
+```
+
 ## Case Studies and Real-World Examples
 
 ### **Netflix: Reducing Alert Fatigue with AI-Driven Scoring**
