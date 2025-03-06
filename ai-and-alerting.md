@@ -47,3 +47,43 @@ For organizations, failure to address alert fatigue and poor alerting practices 
 - **Negative employee experience**, leading to talent retention issues in operational roles.
 
 Given these challenges, **improving alerting quality through structured scoring, refinement, and AI-driven insights** is critical to optimizing operational effectiveness.
+## Best Practices
+
+### Creating Actionable Alerts from the Start
+
+High-quality, actionable alerts contain clearly defined components, ensuring that engineers can **immediately understand** and **act upon** them. Below is a breakdown of essential alert components, including examples of **good** and **bad** implementations.
+
+#### Key Components of a Well-Written Alert:
+
+| Component         | Description                                | Good Example                                  | Bad Example                    | Importance                                                |
+|-------------------|--------------------------------------------|-----------------------------------------------|--------------------------------|-----------------------------------------------------------|
+| **Alert Name**    | Clear identifier of the issue              | High Database Latency                         | DB Problem                     | Facilitates quick recognition and escalation              |
+| **Objective**     | Purpose of the alert                       | Resolve latency affecting applications        | Fix DB                         | Guides proper response                                    |
+| **Threshold**     | Conditions triggering the alert            | Latency >200ms sustained for 3 minutes        | High latency                   | Reduces false positives, enhances reliability             |
+| **Owner**         | Responsible team or individual             | Database Engineering Team                     | None specified                 | Promotes accountability and rapid response                |
+| **Actions**       | Steps for addressing the alert             | Investigate logs, performance metrics         | None provided                  | Provides immediate direction, minimizing response delays  |
+| **Run Book Link** | Link to detailed resolution documentation  | [Database Latency Run Book](https://www.example.com/runbooks/high-db-latency) | No link provided               | Empowers engineers with clear guidance for quick resolution |
+
+### Additional Considerations for High-Quality Alerts
+
+1. **Ensure alerts have a meaningful impact.**  
+   - Every alert should indicate an issue that requires attention. Informational alerts should be moved to dashboards rather than interrupting engineers.
+
+2. **Minimize false positives and false negatives.**  
+   - Tune alert thresholds to reduce unnecessary notifications and ensure critical issues do not go undetected.
+
+3. **Categorize and prioritize alerts effectively.**  
+   - Not all alerts should have the same urgency level—critical alerts should be distinguishable from lower-priority notifications.
+
+4. **Integrate AI-based alert scoring and filtering.**  
+   - Machine learning models can analyze historical alert data and suggest improvements to reduce noise while improving coverage.
+
+By following these best practices, organizations can **significantly reduce alert fatigue**, improve **mean-time-to-resolution (MTTR)**, and **enhance overall reliability**.
+## Developing a Scoring Rubric for Human-Based Alerts
+
+A robust **alert scoring rubric** ensures alerts remain **actionable, relevant, and high-quality**. This structured approach provides **consistency** in evaluating alerts, driving **continuous improvement**, and reducing **alert fatigue**.
+
+## Developing a Scoring Rubric for Human-Based Alerts
+
+A robust **alert scoring rubric** ensures alerts remain **actionable, relevant, and high-quality**. This structured approach provides **consistency** in evaluating alerts, driving **continuous improvement**, and reducing **alert fatigue**.
+
